@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<br><h1>You Answered {{score}} out of {{total_questions}}</h1><br>
+<br><h1>Your percentage is {{percentage}} %</h1><br>
+
+
+<br><br><br>
+{%for i in key_list%}
+{{i}}<br>sexy
+{% endfor %}
+{% endblock %}

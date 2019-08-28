@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+    <br>
+	play hard!!!
+	<br>
+	<form method="POST" action = "{%url 'evaluate'%}">
+        {% csrf_token %}
+	{% for q in questions.all %}
+    <div class="card card-primary">
+    <div class="card-header bg-primary">
+    {{q.qText}}
+    </div>
+    <div class="card-block">
+    <input type="radio" name="{{q.id}}" value="{{q.option1}}">{{q.option1}}<br>
+    <input type="radio" name="{{q.id}}" value="{{q.option2}}">{{q.option2}}<br>
+    <input type="radio" name="{{q.id}}" value="{{q.option3}}">{{q.option3}}<br>
+    <input type="radio" name="{{q.id}}" value="{{q.option4}}">{{q.option4}}<br>
+    </div>
+    </div>
+    {% endfor %}
+    <input class="btn btn-primary" type="submit" name="submitquiz1" value="Submit Quiz"><br><br>
+    
+    </form>
+{% else %}
+		<h3>Please <a href="{% url 'signup'%}">signin</a> or <a href="{%url 'login'%}">login</a> to attempt quiz</h3>
+
+{% endif%}
+{% endblock %}
