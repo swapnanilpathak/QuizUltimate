@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="card card-primary">
+	<div class="card-header bg-primary">You Answered {{score}} out of {{total_questions}} questions</div>
+	<div class="card-block">Your percentage is {{percentage}} %</div>
+</div>
 
 
-<br><h1>You Answered {{score}} out of {{total_questions}}</h1><br>
-<br><h1>Your percentage is {{percentage}} %</h1><br>
+
 
 
 <br><br><br>
